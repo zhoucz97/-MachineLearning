@@ -1,0 +1,35 @@
+import sys
+sys.path.append('E://python file/zcz')
+import zhoufirst
+import pickle
+
+a = []
+b = []
+try:
+	with open('E://python file/zhou.txt', 'r') as data:
+		for each in data:
+			try:
+				(role, line_spoken) = each.split(':', 1)
+				line_spoken = line_spoken.strip()
+				if role == 'A':
+					a.append(line_spoken)
+				elif role == 'B':
+					b.append(line_spoken)
+			except:
+				pass
+	data.close()
+except IOError as err:
+	print('File error: ' + str(err))
+
+		
+	
+try:
+	with open('E://python file/a.txt', 'wb') as a_file:
+		pickle.dump(a, a_file)
+	with open('E://python file/b.txt', 'wb') as b_file:
+		pickle.dump(b, b_file)
+except IOError as err:
+	print('File Error: ' + str(err))
+except pickle.PickleError as perr:
+	print('Pickling error: ' + str(perr))
+	
