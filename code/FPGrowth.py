@@ -139,24 +139,24 @@ def mineTree(inTree, headerTable, minSup, preFix, freqItemList):
             mineTree(myCondTree, myHead, minSup, newFreqSet, freqItemList)
 
 if __name__ == '__main__':
-    #simpDat = loadSimpDat()
-    #initSet = createInitSet(simpDat)
-    #myFPtree, myHeaderTab = createTree(initSet, 3)
-    #freqItems = []
-    #x = mineTree(myFPtree, myHeaderTab, 3, set([]), freqItems)
-    #print(x)
-    #print(myHeaderTab)
+    simpDat = loadSimpDat()
+    initSet = createInitSet(simpDat)
+    myFPtree, myHeaderTab = createTree(initSet, 3)
+    freqItems = []
+    x = mineTree(myFPtree, myHeaderTab, 3, set([]), freqItems)
+   #print(x)
+    print(myHeaderTab)
     #每次构建的树都是变化的，所以每次输出结果不一样也是正常的
-    #myFPtree.disp()
+    myFPtree.disp()
     #将数据集导入到列表
-    parsedDat = [line.split() for line in open('kosarak.dat').readlines()]
+    #parsedDat = [line.split() for line in open('kosarak.dat').readlines()]
     #对初始集合格式化
-    initSet = createInitSet(parsedDat)
+    #initSet = createInitSet(parsedDat)
     #构建FP数，从中找出至少被10wre浏览过的新闻报道
-    myFPtree, myHeaderTab = createTree(initSet, 100000)
+    #myFPtree, myHeaderTab = createTree(initSet, 100000)
     #初始频繁项集为空
-    myFreaList = []
+    #myFreaList = []
     #构建条件树
-    mineTree(myFPtree, myHeaderTab, 100000, set([]), myFreaList)
-    print(len(myFreaList))
-    print(myFreaList)
+    #mineTree(myFPtree, myHeaderTab, 100000, set([]), myFreaList)
+    #print(len(myFreaList))
+    #print(myFreaList)
